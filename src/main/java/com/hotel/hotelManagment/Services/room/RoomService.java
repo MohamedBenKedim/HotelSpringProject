@@ -18,9 +18,6 @@ public class RoomService {
     private final RoomRepository roomRepository;
 
     public Room createRoom(Room room) {
-        if (room.getPrice() <= 0) {
-            throw new IllegalArgumentException("Room price cannot be negative");
-        }
         if(roomRepository.findRoomByRoomNumber(room.getRoomNumber()).isEmpty()){
             return roomRepository.save(room);
         }
@@ -92,7 +89,6 @@ public class RoomService {
         }
         return room;
     }
-
 
     public List<Room> findRoomByType(Room.RoomType roomType) {
         List<Room> room = roomRepository.findByRoomType(roomType);

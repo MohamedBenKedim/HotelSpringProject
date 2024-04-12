@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface RoomRepository extends CrudRepository<Room, Long> {
 
     List<Room> findByRoomType(Room.RoomType roomType);
+
+    List<Room> findRoomByRoomTypeAndBedCount(Room.RoomType roomType, int bedNumber);
     List<Room> findByPriceBetween(double minPrice, double maxPrice);
 
     Optional<Room> findRoomByRoomNumber(String roomNumber);

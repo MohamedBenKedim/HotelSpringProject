@@ -13,4 +13,7 @@ public interface UserRepository extends JpaRepository<User , Long> {
     Optional<User> findFirstByEmail(String email);
     //research method in order to find a user using his email
     Optional<User> findFirstByUserRole(UserRole userRole);
+
+    @Override
+    Optional<User> findById(Long aLong);
 }
