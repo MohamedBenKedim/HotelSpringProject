@@ -3,8 +3,6 @@ import com.hotel.hotelManagment.dto.RoomDto;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
-
 @Entity
 @Data
 public class Room {
@@ -25,11 +23,26 @@ public class Room {
         SUITE
     }
     public Room(RoomDto roomDto) {
+        this.id = roomDto.getId();
         this.roomNumber = roomDto.getRoomNumber();
         this.roomType = roomDto.getRoomType();
         this.bedCount = roomDto.getBedCount();
         this.price = roomDto.getPrice();
         this.description = roomDto.getDescription();
     }
+    public RoomDto getRoomDto()
+    {
+        RoomDto roomDto = new RoomDto();
+        roomDto.setId(id);
+        roomDto.setRoomType(roomType);
+        roomDto.setRoomNumber(roomNumber);
+        roomDto.setBedCount(bedCount);
+        roomDto.setPrice(price);
+        roomDto.setDescription(description);
+        return roomDto;
+    }
+    public Room()
+    {
 
+    }
 }

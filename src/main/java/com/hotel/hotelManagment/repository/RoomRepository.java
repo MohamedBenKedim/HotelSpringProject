@@ -11,6 +11,9 @@ public interface RoomRepository extends CrudRepository<Room, Long> {
     List<Room> findByRoomType(Room.RoomType roomType);
     List<Room> findByPriceBetween(double minPrice, double maxPrice);
 
+    Optional<Room> findRoomByRoomNumber(String roomNumber);
     Optional<Room> findRoomById(Long roomId);
+
+   // void deleteById(String roomNumber);
 
 }
